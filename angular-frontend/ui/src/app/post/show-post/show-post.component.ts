@@ -13,6 +13,10 @@ export class ShowPostComponent implements OnInit {
 
   postsList:any=[]; 
   newpost:any=[];
+
+  ModalTitle:string="";
+  dep:any;
+
   ActivateAddOrEditComp:boolean=false;
 
   ngOnInit(): void {
@@ -32,7 +36,14 @@ export class ShowPostComponent implements OnInit {
       Likes : 0,
       Views : 0,
     }
+    this.dep={
+      GraphFile : "",
+      Caption : "",
+      Likes : 0,
+      Views : 0,
+    }
     this.ActivateAddOrEditComp = true;
+    this.ModalTitle="add dep";
   };
 
   closeClick(){

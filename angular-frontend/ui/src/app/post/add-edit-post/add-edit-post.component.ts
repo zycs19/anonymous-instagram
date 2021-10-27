@@ -12,6 +12,7 @@ export class AddEditPostComponent implements OnInit {
 
   @Input() photo_dir:any;
   @Input() photo_desc:any;
+  @Input() dep:any;
 
   post:any=[];
 
