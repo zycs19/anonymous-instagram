@@ -6,29 +6,38 @@ import { SharedService } from 'src/app/shared.service';
   templateUrl: './add-edit-post.component.html',
   styleUrls: ['./add-edit-post.component.css']
 })
+
 export class AddEditPostComponent implements OnInit {
 
   constructor(private service : SharedService) { }
+  @Input() post :any;
 
-  @Input() photo_dir:any;
-  @Input() photo_desc:any;
-  @Input() dep:any;
-
-  post:any=[];
+  GraphFile:string = "none";
+  Caption:string = "none";
+  Likes:number = 0;
+  Views:number = 0;
 
 
 
   ngOnInit(): void {
-    this.post={
-      GraphFile : this.photo_dir,
-      Caption : this.photo_desc,
-      Likes : 0,
-      Views : 0,
-    }
+    this.GraphFile = this.post.GraphFile;
+    this.Caption = this.post.Caption;
+    
+    //this.GraphFile = this.post.GraphFile;
+    //this.Caption = this.post.Caption;
+    //this.Likes = this.post.Likes;
+    //this.Views = this.post.Views;
+
   }
 
   addPost(){
-    this.service.addPosts(this.post).subscribe(res=>{
+    var val = {
+      GraphFile: this.GraphFile,
+      Caption: this.Caption,
+      Likes:this.Likes,
+      Views:this.Views
+    };
+    this.service.addPosts(val).subscribe(res=>{
       alert(res.toString());
     });
   }

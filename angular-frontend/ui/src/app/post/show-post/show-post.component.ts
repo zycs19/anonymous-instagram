@@ -15,7 +15,7 @@ export class ShowPostComponent implements OnInit {
   newpost:any=[];
 
   ModalTitle:string="";
-  dep:any;
+  post:any;
 
   ActivateAddOrEditComp:boolean=false;
 
@@ -36,7 +36,7 @@ export class ShowPostComponent implements OnInit {
       Likes : 0,
       Views : 0,
     }
-    this.dep={
+    this.post={
       GraphFile : "",
       Caption : "",
       Likes : 0,
