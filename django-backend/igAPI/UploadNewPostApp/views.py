@@ -6,6 +6,8 @@ from django.http.response import JsonResponse
 from UploadNewPostApp.models import IGPost, Comments
 from UploadNewPostApp.serializer import IGPostSerializer, CommentsSerializer
 
+from django.core.files.storage import default_storage
+
 
 # Create your views here.
 @csrf_exempt
@@ -38,3 +40,9 @@ def postApi(request, id=0):
         return JsonResponse('Deleted!!', safe=False)
 
 
+@csrf_exempt
+def SavePhoto(request):
+    file = request.FILES['uploadedFile']
+    filename = default_storage.save(file.name, file)
+
+    return JsonResponse(filename, safe=False)
