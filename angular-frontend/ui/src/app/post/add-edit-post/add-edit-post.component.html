@@ -2,14 +2,17 @@
 <form>
     <div class="form-group">
       <label for="photodir">Photo</label>
-      <input [(ngModel)]="GraphFile" type="text" class="form-control" id="photodir1" 
+      <input [(ngModel)]="post.GraphFile" name="graph_file"
+      type="text" class="form-control" id="photodir1" 
       aria-describedby="photo-directory" placeholder="photo directory">
-      <p>hi {{GraphFile}}</p>
+      <p>hi 2</p>
+       <p>  {{post.GraphFile}}</p>
       <!--<app-add-edit-post [photo_dir] = "photo_dir" ></app-add-edit-post>-->
     </div>
     <div class="form-group">
       <label for="photodesc">Description</label>
-      <input [(ngModel)]="post.Caption" type="text" class="form-control" id="photodesc1" placeholder="enter text">
+      <input [(ngModel)]="post.Caption" name="graph_caption"
+      type="text" class="form-control" id="photodesc1" placeholder="enter text">
       <!--<app-add-edit-post [photo_desc] = "photo_desc"></app-add-edit-post>-->
     </div>
     <button (click) = "addPost()" type="submit" class="btn btn-primary">Submit</button>

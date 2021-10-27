@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PostComponent } from './post/post.component';
-import { AddEditPostComponent } from './post/add-edit-post/add-edit-post.component';
+import { AddEditPostComponent} from './post/add-edit-post/add-edit-post.component';
 import { ShowPostComponent } from './post/show-post/show-post.component';
 import { SharedService } from './shared.service';
 

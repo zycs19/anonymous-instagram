@@ -7,7 +7,9 @@ import { SharedService } from 'src/app/shared.service';
   styleUrls: ['./add-edit-post.component.css']
 })
 
+
 export class AddEditPostComponent implements OnInit {
+
 
   constructor(private service : SharedService) { }
   @Input() post :any;
@@ -20,6 +22,9 @@ export class AddEditPostComponent implements OnInit {
 
 
   ngOnInit(): void {
+    console.log(this.post);
+    console.log(this.post.Caption);
+
     this.GraphFile = this.post.GraphFile;
     this.Caption = this.post.Caption;
     
@@ -32,8 +37,8 @@ export class AddEditPostComponent implements OnInit {
 
   addPost(){
     var val = {
-      GraphFile: this.GraphFile,
-      Caption: this.Caption,
+      GraphFile: this.post.GraphFile,
+      Caption: this.post.Caption,
       Likes:this.Likes,
       Views:this.Views
     };
