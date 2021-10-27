@@ -22,8 +22,6 @@ export class AddEditPostComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log(this.post);
-    console.log(this.post.Caption);
 
     this.GraphFile = this.post.GraphFile;
     this.Caption = this.post.Caption;
