@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
-    'UploadNewPostApp',
-    'ViewAllPostApp'
+    'UploadNewPostApp.apps.UploadnewpostappConfig',
+    'ViewAllPostApp.apps.ViewallpostappConfig',
+    'rest_framework',
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
