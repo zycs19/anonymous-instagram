@@ -43,7 +43,7 @@ export class ShowPostComponent implements OnInit {
       Views : 0,
     }
     this.ActivateAddOrEditComp = true;
-    this.ModalTitle="add dep";
+    this.ModalTitle="New Post";
   };
 
   closeClick(){
