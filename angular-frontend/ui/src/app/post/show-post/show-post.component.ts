@@ -12,12 +12,15 @@ export class ShowPostComponent implements OnInit {
 
 
   postsList:any=[]; 
-  newpost:any=[];
 
   ModalTitle:string="";
   post:any;
 
   ActivateAddOrEditComp:boolean=false;
+
+  PhotoFilePath:string = "";
+  PhotoFilePathPrefix:string = this.service.photoUrl;
+
 
   ngOnInit(): void {
     this.refreshPosts();
@@ -30,17 +33,13 @@ export class ShowPostComponent implements OnInit {
   };
 
   addClick(){
-    this.newpost={
-      GraphFile : "",
-      Caption : "",
-      Likes : 0,
-      Views : 0,
-    }
+
     this.post={
       GraphFile : "",
       Caption : "",
       Likes : 0,
       Views : 0,
+      PostID: 0,
     }
     this.ActivateAddOrEditComp = true;
     this.ModalTitle="New Post";
@@ -49,5 +48,35 @@ export class ShowPostComponent implements OnInit {
   closeClick(){
     this.ActivateAddOrEditComp = false;
     this.refreshPosts();
+  }
+
+  editClick(item:any){
+    this.post = item;
+    this.ModalTitle = "Edit Post";
+    this.ActivateAddOrEditComp = true;
+
+  }
+  likeClick(item:any){
+    this.post = item;
+    var val = {
+      GraphFile: item.GraphFile,
+      Caption: item.Caption,
+      Likes:item.Likes + 1,
+      Views:item.Views,
+      PostID:item.PostID,
+    };
+    this.service.updatePosts(val).subscribe(res=>{
+      alert(res.toString());
+    });
+  }
+
+  deleteClick(item:any){
+    this.post = item;
+    this.ModalTitle = "Delete Post";
+    if(confirm("Are you sure to delete the post? Click to confirm!")){
+      this.service.deletePosts(this.post.PostID).subscribe(data=>alert(data.toString()))
+      this.refreshPosts()
+    }
+
   }
 }
