@@ -29,5 +29,8 @@ export class SharedService {
     return this.http.delete(this.APIUrl + '/posts/' + val);
   }
 
+  uploadPhoto(val:any){
+    return this.http.post(this.APIUrl + '/SavePhoto', val)
+  }
 
 }
